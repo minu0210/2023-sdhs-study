@@ -2,7 +2,7 @@ import Button from "../../../components/Button";
 
 import * as S from "./styled";
 
-function CreateItemBox({ onChange }) {
+function CreateItemBox({ onChange, createTodo }) {
   const handleInputValue = (e) => {
     onChange(e.target.value);
   };
@@ -13,7 +13,7 @@ function CreateItemBox({ onChange }) {
         placeholder="To do를 입력해주세요."
         onChange={handleInputValue}
       />
-      <Button>등록</Button>
+      <Button onClick={createTodo}>등록</Button>
     </S.InputBox>
   );
 }
