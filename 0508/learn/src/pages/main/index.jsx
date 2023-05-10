@@ -8,7 +8,7 @@ function Main() {
   return (
     <S.Container>
       <S.MainWrapper>
-        <div>메인페이지</div>
+        <div>To do list</div>
         <Button>
           <Link to="/todos">만들기</Link>
         </Button>
