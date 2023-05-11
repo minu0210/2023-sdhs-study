@@ -25,16 +25,9 @@ export const ButtonWrap = styled.div`
   cursor: pointer;
   margin: 0 4px;
   color: #fff;
-  &:first-child {
-    background: #ffdd8a;
-  }
-  &:last-child {
-    background: #ff968a;
-  }
-  &:first-child:hover {
-    background: #FFD36D;
-  }
-  &:last-child:hover {
+  background: #ff968a;
+
+  &:hover {
     background: #ff7d6f;
   }
 `;
