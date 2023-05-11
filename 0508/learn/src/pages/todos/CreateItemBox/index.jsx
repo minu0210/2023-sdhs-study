@@ -7,12 +7,17 @@ function CreateItemBox({ value, onChange, createTodo }) {
     onChange(e.target.value);
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") createTodo();
+  };
+
   return (
     <S.InputBox>
       <S.Input
         value={value}
         placeholder="To do를 입력해주세요."
         onChange={handleInputValue}
+        onKeyUp={handleKeyPress}
       />
       <Button onClick={createTodo} disabled={!value.trim()}>
         등록
