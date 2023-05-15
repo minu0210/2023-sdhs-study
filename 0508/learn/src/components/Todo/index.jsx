@@ -7,7 +7,11 @@ function Todo(props) {
   const { deleteTodo, handleSelected } = props;
 
   return (
-    <S.Container>
+    <S.Container
+      onClick={() => {
+        document.querySelector("li").style.textDecoration = "line-through";
+      }}
+    >
       <S.ContentWrap>
         <Checkbox onChange={handleSelected} />
         <S.Title>{props.children}</S.Title>
