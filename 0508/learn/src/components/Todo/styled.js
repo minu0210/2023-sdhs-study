@@ -34,4 +34,9 @@ export const ButtonWrap = styled.div`
 
 export const Title = styled.p`
   font-size: 16px;
+  margin-left: 14px;
+`;
+
+export const ContentWrap = styled.div`
+  display: flex;
 `;
