@@ -12,7 +12,6 @@ export const Container = styled.li`
   padding: 10px 16px;
   margin-top: 20px;
   justify-content: space-between;
-  }
 `;
 
 export const ButtonWrap = styled.div`
