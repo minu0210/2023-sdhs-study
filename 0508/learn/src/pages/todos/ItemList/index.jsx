@@ -15,7 +15,6 @@ function ItemList({ todos, searchValue, deleteTodo, setSelectedTodoIds }) {
           const handleDeleteTodo = () => {
             deleteTodo(id);
           };
-
           const handleSelected = (checked) => {
             if (checked) {
               // checkbox가 check 되었을 때 (todo를 선택 했을 때)
@@ -31,7 +30,6 @@ function ItemList({ todos, searchValue, deleteTodo, setSelectedTodoIds }) {
                 prevState.filter((prevId) => prevId !== id)
               );
             }
-            console.log({ id, checked });
           };
 
           return (
