@@ -35,8 +35,8 @@ function ItemList() {
         else return 1;
       }
       if (a.level === undefined) return -1;
-      if (a.level < b.level) return 1;
-      if (a.level > b.level) return -1;
+      if (a.level < b.level) return -1;
+      if (a.level > b.level) return 1;
       return 0;
     });
     setList(result);
