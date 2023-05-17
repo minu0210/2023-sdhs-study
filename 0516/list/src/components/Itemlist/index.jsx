@@ -75,7 +75,9 @@ function ItemList() {
         <Item id="ID" name="NAME" level="LEVEL"></Item>
         <S.Line />
         {list.map(({ id, name, level }) => {
-          return <Item key={id} id={id} name={name} level={level}></Item>;
+          return (
+            <Item key={id} id={id} name={name} level={level || "없음"}></Item>
+          );
         })}
       </S.ListWrap>
     </>
