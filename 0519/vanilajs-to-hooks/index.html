@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vanilajs-to-hooks</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        let currentStateKey = 0; // useState가 실행 된 횟수
+        const states = []; // state를 보관할 배열
+
+        // useState라는 함수를 만들어주었음
+        // useState의 매개변수는 initState를 받아온다
+        function useState(initState) {
+            // key를 복사하여 따로 할당
+            const key = currentStateKey;
+            // initState로 초기값을 설정
+            if (states.length === key) {
+                states.push(initState)
+            }
+
+            // state를 할당
+            const state = states[key];
+            const setState = (newState) => {
+                // state를 직접 수정하는 것이 아닌, state 내부의 값을 수정
+                // (x) states = [...states, newState];
+                // (o) state[key] = newState;
+                states[key] = newState; // 새로운 state를 할당한다
+                render(); // render를 실행한다.
+            }
+            currentStateKey += 1;
+            return [state, setState]
+        };
+
+        function Counter() {
+            // 첫번째 인자로 count라는 값을 받아오고
+            // 두번째 인자로 setCount라는 값을 받아온다
+            // 위에서 작성한 useState함수에 initState로 1을 전달한다.
+            const [count, setCount] = useState(1);
+
+            // setCount로 count에 +1을 해주는
+            // increment라는 함수를 만들어준다.
+            window.increment = () => setCount(count + 1);
+            // function increment(){}
+
+            // tag를 return 한다.
+            return `
+                <div>
+                    <strong>count: ${count} </strong>
+                    <button onclick="increment()">증가</button>
+                </div>
+            `;
+        }
+
+        function Cat() {
+            const [cat, setCat] = useState('고양이');
+
+            window.meow = () => setCat(cat + ' 야옹!');
+
+            return `
+            <div>
+                <strong>${cat}</strong>
+                <button onclick="meow()">고양이의 울음소리</button>
+            </div>
+            `;
+        }
+
+        function render() {
+            // document의 id가 app인 element를 찾아서
+            const $app = document.querySelector("#app");
+            // element의 innerHTML을 Counter의 return 값으로 변경해준다.
+            $app.innerHTML = `
+                <div>
+                    ${Counter()}
+                    ${Cat()}
+                </div>
+            `;
+
+            currentStateKey = 0;
+        }
+
+        render();
+    </script>
+</body>
+
+</html>
